@@ -1,0 +1,8 @@
+{
+  "_note": "APPROXIMATE example landmarks near ASU Tempe. Verify/edit these before real use. Used only to turn a last location into a friendly label like 'the library'.",
+  "places": [
+    { "label": "Hayden Library", "lat": 33.4194, "lng": -111.9338 },
+    { "label": "the Memorial Union", "lat": 33.4172, "lng": -111.9347 },
+    { "label": "the Sun Devil Fitness Complex", "lat": 33.4163, "lng": -111.9316 }
+  ]
+}

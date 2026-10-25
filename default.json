@@ -1,0 +1,18 @@
+{
+  "timezone": "America/Phoenix",
+  "ping2AfterMin": 5,
+  "alertAfterMin": 10,
+  "waitWindowMin": 5,
+  "askTimeoutMin": 2,
+  "pdLinkAtMin": 30,
+  "slowdownFactor": 2,
+  "walkMetersPerMin": 80,
+  "standbyCarOwner": true,
+  "callBackup": true,
+  "police": {
+    "name": "ASU Police dispatch",
+    "phone": "480-965-3456",
+    "emergency": "911",
+    "source": "https://cfo.asu.edu/police-contact"
+  }
+}

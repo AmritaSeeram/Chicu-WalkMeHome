@@ -1,0 +1,17 @@
+{
+  "name": "walk-me-home",
+  "version": "1.0.0",
+  "description": "Walk Me Home: a privacy-first safety layer for a small friend group (Cubbie Hackathon, Track 3 + Track 2)",
+  "type": "module",
+  "engines": { "node": ">=22.18" },
+  "scripts": {
+    "test": "node --test \"tests/**/*.test.ts\"",
+    "sim": "node src/sim/cli.ts",
+    "eval": "node eval/run.ts",
+    "bot": "node src/bot.ts",
+    "build:web": "node scripts/build-web.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": { "@types/node": "^22.0.0", "typescript": "^5.8.0" },
+  "license": "MIT"
+}
