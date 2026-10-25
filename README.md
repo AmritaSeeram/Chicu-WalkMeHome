@@ -67,7 +67,18 @@ What this says, honestly: shared plans cut false-alarm asks (63% to 50%), **but 
 All timings are in `config/default.json` (pings, alert, wait window, ask timeout, T+30, slowdown, car standby, call backup). `loadConfig` rejects values that would let the ladder stop. ASU Police dispatch (480-965-3456) and 911 come from https://cfo.asu.edu/police-contact.
 
 ## Deploy the website (GitHub Pages)
-Push to a GitHub repo, then Settings > Pages > Source: GitHub Actions. `.github/workflows/pages.yml` runs the tests, builds `web/index.html` and publishes it.
+
+The landing can be hosted free on GitHub Pages for this public repository. The working deployment workflow is `.github/workflows/pages.yml`; the root `pages.yml` is an original reference file and is not run by GitHub Actions.
+
+**One-time owner setup:** Amrita (or a repository admin) opens [Settings → Pages](https://github.com/AmritaSeeram/Chicu-WalkMeHome/settings/pages), then selects **GitHub Actions** under **Build and deployment → Source**. A collaborator with write access can push the workflow but cannot enable Pages settings.
+
+After enabling Pages, open [Actions → Deploy Walk Me Home landing](https://github.com/AmritaSeeram/Chicu-WalkMeHome/actions/workflows/pages.yml), select **Run workflow**, and choose `main`. Later changes to the landing, its build script, or its configuration deploy automatically.
+
+Expected site URL after the first successful deployment: **https://amritaseeram.github.io/Chicu-WalkMeHome/**
+
+The workflow checks the landing JavaScript, runs `npm run build:web`, uploads `dist/`, and publishes it. No package install, model keys, Telegram token, or backend are needed for this static landing. Assets use relative URLs so the repository subpath works. The missing engine test suite is not part of this landing-only deployment.
+
+This publishes the landing and simulated walkthrough only. The live Telegram bot needs its missing source files restored and a separate continuously running Node process; GitHub Pages does not run that bot.
 
 ## Honest status
 **Live-capable, but verified only against fakes:** the Telegram bot (`/join`, opt-in, locations, check-ins, plans, asks, outcomes), Claude plan parsing and wording. They are tested with a fake Telegram API and fake LLM functions. They have **not** been run against the real Telegram or Claude services by the author.
