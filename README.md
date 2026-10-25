@@ -1,5 +1,19 @@
 # Walk Me Home
 
+## Landing page preview
+
+This checkout contains a flattened subset of the original project. The documented `src/core/`, `src/sim/`, `src/bot.ts`, and several other source paths are absent. The engine, bot, and original test commands below require those files to be restored.
+
+The new landing page is independent of that missing source tree. It contains a clearly labeled, browser-only walkthrough, not the live rules engine. It does not read locations, send messages, or call model APIs.
+
+```sh
+npm run dev              # http://localhost:3002
+npm run build:web        # creates a static landing export in dist/
+```
+
+No dependencies need to be installed for the landing. Set `PORT=3003 npm run dev` to choose another port. Serve `web/` directly or publish `dist/` to a static host. `build:web` reads the root `default.json` to synchronize the illustrated timeline. The original flattened `build-web.ts` is retained for reference.
+
+
 A safety layer for a small friend group (2 to 4 people), built for the Cubbie Hackathon (Track 3 group chat assistant, with a Track 2 agent-to-agent layer).
 If someone goes quiet, a group-chat bot alerts the group and each friend's **personal agent** privately works out who should check on them.
 Nobody has to open an app in an emergency.
@@ -28,7 +42,7 @@ Needs Node 22.18+ (runs TypeScript directly, no build step, no dependencies to i
 npm test                 # 28 tests: ranking, ladder, sharing, leaks, adversarial, LLM guards, bot flow
 npm run sim fine 7 --plan  # replay one simulated night (fine|missing, seed, optional --plan)
 npm run eval             # 300 simulated nights per condition -> eval/results.md + results.json
-npm run build:web        # builds web/index.html (the demo, using the real engine)
+npm run build:web        # exports the standalone landing into dist/ (see checkout note above)
 ```
 **Telegram bot:** create a bot with @BotFather, copy `.env.example` to `.env`, set `TELEGRAM_BOT_TOKEN` (and `ANTHROPIC_API_KEY` for `/plan`), turn off bot privacy mode for the group (BotFather `/setprivacy`), then `node --env-file=.env src/bot.ts`.
 In the group each friend sends `/join`; in a private chat with the bot each sends `/start`, `/optin`, shares a location and sets `/checkin 22:30`. `/start` lists every command.

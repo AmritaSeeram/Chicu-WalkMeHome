@@ -1,0 +1,7 @@
+{
+  "ping2AfterMin": 5,
+  "alertAfterMin": 10,
+  "waitWindowMin": 5,
+  "slowdownFactor": 2,
+  "pdLinkAtMin": 30
+}
